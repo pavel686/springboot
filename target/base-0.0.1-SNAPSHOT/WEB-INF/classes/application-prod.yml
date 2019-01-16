@@ -1,0 +1,30 @@
+#freemark配置
+spring:
+  freemarker:
+    request-context-attribute: request
+    suffix: .ftl
+    template-loader-path: classpath:/templates/
+    content-type: text/html
+    charset: utf-8
+    cache: false
+  #thymeleaf配置
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
+    cache: false
+
+
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/cblue_shop
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+logging:
+  config: classpath:logback-spring.xml
+

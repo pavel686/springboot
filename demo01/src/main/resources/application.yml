@@ -1,0 +1,19 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /base
+name: zhangsan
+age: 20
+user.info: name=${name},age=${age}
+
+user:
+     username: lisi
+     age: 30
+
+
+spring:
+  mvc:
+    static-path-pattern: /static/**
+  messages:
+    basename: msg
+

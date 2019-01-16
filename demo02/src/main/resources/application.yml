@@ -1,0 +1,9 @@
+mybatis:
+  config-location: classpath:mybatis.xml # mybatis配置文件所在路径
+  type-aliases-package: com.cblue.springboot.demo02.mapper # 定义所有操作类的别名所在包
+  mapper-locations: classpath:mapper/*Mapper.xml # 所有的mapper映射文件
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql

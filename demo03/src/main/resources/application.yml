@@ -1,0 +1,21 @@
+spring:
+  freemarker:
+    request-context-attribute: request
+    suffix: .ftl
+    template-loader-path: classpath:/templates/
+    content-type: text/html
+    charset: utf-8
+    cache: false
+    enabled: true
+  resources:
+    static-locations: classpath:/static,classpath:/templates
+
+
+thymeleaf:
+  prefix: classpath:/templates/
+  suffix: .html
+  mode: HTML5
+  encoding: UTF-8
+  cache: false
+
+

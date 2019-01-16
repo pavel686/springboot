@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <ul>
+            <li th:each="error:${errors}">
+               <span th:if="${error.code=='typeMismatch'}" th:text="生日格式不对"></span>
+                <span th:unless="${error.code=='typeMismatch'}" th:text="${error.defaultMessage}"></span>
+            </li>
+        </ul>
+    </div>
+
+    <form action="/addStudent" th:object="${student}" method="post">
+        用户名：<input type="text" name="name"/><br/>
+        密码：<input type="password" name="password"/><br/>
+        出生日期：<input type="text" name="birthday"/><br/>
+        <input type="submit" value="提交"/>
+    </form>
+
+</body>
+</html>

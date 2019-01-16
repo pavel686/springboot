@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .red{
+            color:red;
+        }
+        .blue{
+            color:blue;
+        }
+
+    </style>
+</head>
+<body>
+
+<!--直接输出文字-->
+<p th:text="'显示文字'"></p>
+
+<p th:text="2013 + 2"></p>
+
+<!--显示变量文本-->
+<h3 th:text="${name}"></h3>
+
+<!--显示HTML-->
+<h3 th:utext="${name}"></h3>
+
+<!--格式化日期-->
+<span th:text="${#calendars.format(today,'yyyy-DD-mm')}"></span>
+
+<!--显示单个对象-->
+<div th:object="${user}">
+    <p  th:text="*{username}"></p>
+    <p  th:text="*{age}"></p>
+</div>
+
+<!--输出url-->
+<a href="" th:href="@{'/user/list'}">查询全部</a><br/>
+<a href="" th:href="@{/user(id=${id})}">根据id查询(参数形式)</a><br/>
+<a href="" th:href="@{'/user/'+${id}}">根据id查询(restful形式)</a><br/>
+
+
+<!--if条件判断-->
+<div th:if="${isAdmin}==true">
+     是管理员
+</div>
+<div th:unless="${isAdmin}==true">
+    不是管理员
+</div>
+
+<!--switch判断-->
+<div th:switch="${role}">
+    <p th:case="'student'">我是学生</p>
+    <p th:case="'teacher'">我是老师</p>
+</div>
+
+<!--循环输出,隔行变色-->
+<ul  th:each="user,index:${users}">
+    <li th:class="${index.odd}?'blue':'red'">
+        <span th:text="${user.username}"></span>-
+        <span th:text="${user.age}"></span>
+    </li>
+</ul>
+
+
+<!--包含-->
+<!--前一个是文件名，后一个包含部分名-->
+<div th:insert="~{head :: start}"></div>
+body~~~~
+<div th:insert="~{head :: #stop}"></div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+server:
+  port: 9001
+  servlet:
+    context-path: /base
+name: "张三"
+age: 20
+user.info: "name is ${name},age is ${age}"
+user:
+  username: "李四"
+  age: 30
+
+
+
+
+spring:
+  profiles:
+    active: prod
+  mvc:
+    static-path-pattern: /static/**
+
+
+mybatis:
+  config-location: classpath:mybatis.xml
+  mapper-locations: classpath*:mapper/*Mapper.xml
+
+# 分页配置
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+

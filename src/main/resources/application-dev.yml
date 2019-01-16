@@ -1,0 +1,32 @@
+server:
+  port: 9001
+  servlet:
+    context-path: /base
+name: "张三"
+age: 20
+user.info: "name is ${name},age is ${age}"
+user:
+  username: "李四"
+  age: 30
+
+#freemark配置
+spring:
+  freemarker:
+    ＃设置页面中的request对象
+    request-context-attribute: request
+    ＃模版后缀
+    suffix: .ftl
+    ＃模版文件路径
+    template-loader-path: classpath:/templates/
+    ＃文档类型
+    content-type: text/html
+    ＃页面编码
+    charset: utf-8
+    ＃页面缓存
+    cache: false
+  ＃设置静态资源
+  mvc:
+    static-path-pattern: /**
+
+
+
